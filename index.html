@@ -2,83 +2,82 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Hola</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
   min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:grid;
+  place-items:center;
   overflow:hidden;
-  font-family:Georgia, serif;
-  color:#46363b;
+  font-family:Georgia,serif;
+  color:#49383e;
   background:
-    radial-gradient(circle at top left, #ffe9ef, transparent 35%),
-    radial-gradient(circle at bottom right, #f7e4d2, transparent 35%),
-    #fff8f6;
+    radial-gradient(circle at 10% 10%,#ffe8ef,transparent 25%),
+    radial-gradient(circle at 90% 90%,#f6ead8,transparent 30%),
+    #fff9f7;
 }
 
-/* Ornamentos */
+/* FLORES */
+
 .flower{
-  position:absolute;
-  font-size:42px;
+  position:fixed;
+  pointer-events:none;
   opacity:.55;
-  user-select:none;
-  animation:float 6s ease-in-out infinite;
+  animation:float 7s ease-in-out infinite;
 }
 
-.f1{top:8%;left:8%}
-.f2{top:16%;right:9%;animation-delay:-2s}
-.f3{bottom:10%;left:10%;animation-delay:-4s}
-.f4{bottom:7%;right:8%;animation-delay:-1s}
+.f1{top:7%;left:8%;font-size:42px}
+.f2{top:15%;right:9%;font-size:34px;animation-delay:-2s}
+.f3{bottom:8%;left:10%;font-size:38px;animation-delay:-4s}
+.f4{bottom:10%;right:8%;font-size:46px;animation-delay:-1s}
 
 @keyframes float{
   50%{
-    transform:translateY(-15px) rotate(4deg);
+    transform:translateY(-18px) rotate(5deg);
   }
 }
 
-/* Carta */
+
+/* CARTA */
+
 .card{
-  width:min(90%,430px);
-  min-height:360px;
-  padding:42px 32px;
+  width:min(90%,440px);
+  min-height:420px;
+  padding:38px 30px;
   position:relative;
   text-align:center;
+  border-radius:30px;
+  background:rgba(255,255,255,.78);
   border:1px solid rgba(255,255,255,.8);
-  border-radius:28px;
-  background:rgba(255,255,255,.72);
+  box-shadow:0 25px 70px rgba(180,110,130,.18);
   backdrop-filter:blur(12px);
-  box-shadow:0 25px 70px rgba(160,100,120,.18);
 }
 
-/* Detalle superior */
 .card::before{
   content:"✿";
   display:block;
-  margin-bottom:18px;
-  font-size:28px;
+  margin-bottom:15px;
+  font-size:26px;
   color:#c98c9b;
 }
 
 h1,h2{
-  margin:8px 0 16px;
   font-weight:400;
 }
 
 h1{
   font-size:34px;
+  margin:5px 0 20px;
 }
 
 h2{
   font-size:24px;
+  margin:8px 0 18px;
 }
 
 p{
@@ -86,30 +85,33 @@ p{
   line-height:1.65;
 }
 
-input{
+input,textarea{
   width:100%;
-  margin-top:12px;
+  margin-top:14px;
   padding:13px 15px;
-  border:none;
-  border-bottom:1px solid #d9b7bf;
+  border:1px solid #ead4d9;
+  border-radius:14px;
   outline:none;
-  background:transparent;
-  text-align:center;
+  background:#fffafa;
   font-family:inherit;
   font-size:16px;
-  color:#46363b;
+  color:#49383e;
 }
 
-/* Botones */
+textarea{
+  resize:none;
+  min-height:110px;
+}
+
 button{
   margin-top:18px;
-  padding:12px 22px;
-  border:none;
+  padding:12px 24px;
+  border:0;
   border-radius:30px;
   cursor:pointer;
   font-family:inherit;
   font-size:15px;
-  color:#fff;
+  color:white;
   background:#c98c9b;
   box-shadow:0 8px 20px rgba(201,140,155,.25);
   transition:.25s;
@@ -123,35 +125,39 @@ button:hover{
   display:flex;
   flex-direction:column;
   gap:10px;
-  margin-top:22px;
+  margin-top:20px;
 }
 
 .options button{
   width:100%;
   margin:0;
-  background:#d9a7b3;
-}
-
-.options button:nth-child(2){
-  background:#bfa08d;
-}
-
-.options button:nth-child(3){
-  background:#b18b9b;
 }
 
 .hidden{
-  display:none;
+  display:none!important;
 }
 
 .fade{
-  animation:fade .5s ease;
+  animation:fade .45s ease;
+}
+
+.note{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid #ead4d9;
+  font-size:14px;
+  line-height:1.6;
+  opacity:.75;
+}
+
+.instagram{
+  background:#b18b9b;
 }
 
 @keyframes fade{
   from{
     opacity:0;
-    transform:translateY(10px);
+    transform:translateY(12px);
   }
 
   to{
@@ -159,13 +165,13 @@ button:hover{
     transform:translateY(0);
   }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- Flores decorativas -->
+<!-- FLORES -->
+
 <div class="flower f1">🌷</div>
 <div class="flower f2">🌸</div>
 <div class="flower f3">🌺</div>
@@ -174,632 +180,417 @@ button:hover{
 
 <main class="card">
 
-  <!-- INICIO -->
-  <section id="start" class="fade">
 
-    <h1>Hola.</h1>
+<!-- INICIO -->
 
-    <p>
-      Tengo curiosidad por algo.
-    </p>
+<section id="start" class="fade">
 
-    <p>
-      ¿Qué ha sido algo que te ha hecho feliz últimamente?
-    </p>
+  <h1>Hola.</h1>
 
-    <input
-      id="firstAnswer"
-      placeholder="Escribe lo que quieras..."
-    >
+  <p>¿Qué haces?</p>
 
-    <button onclick="begin()">
-      Enviar
+  <input
+    id="activity"
+    placeholder="Escribe lo que quieras..."
+  >
+
+  <button onclick="startConversation()">
+    Enviar
+  </button>
+
+</section>
+
+
+<!-- RESPUESTA -->
+
+<section id="response" class="hidden fade">
+
+  <h2 id="responseText"></h2>
+
+  <p id="responseSub"></p>
+
+  <button onclick="showMenu()">
+    Continuar
+  </button>
+
+</section>
+
+
+<!-- MENU -->
+
+<section id="menu" class="hidden fade">
+
+  <h2>Hay algunas cosas que tengo curiosidad por saber.</h2>
+
+  <p>Elige una.</p>
+
+  <div class="options">
+
+    <button onclick="askAboutYou()">
+      Cuéntame algo más
     </button>
 
-  </section>
+    <button onclick="askSecret()">
+      Dime un secreto 🤫
+    </button>
+
+    <button onclick="askAngry()">
+      ¿Estás enojada?
+    </button>
+
+  </div>
+
+</section>
 
 
-  <!-- MENU -->
-  <section id="menu" class="hidden fade">
+<!-- PREGUNTAS -->
 
-    <h2>Me gusta conocer ese tipo de cosas de ti.</h2>
+<section id="question" class="hidden fade">
 
-    <p>
-      ¿Qué quieres hacer ahora?
-    </p>
+  <h2 id="questionTitle"></h2>
 
-    <div class="options">
+  <p id="questionText"></p>
 
-      <button onclick="more()">
-        Cuéntame algo más
-      </button>
+  <textarea
+    id="answer"
+    placeholder="Escribe aquí..."
+  ></textarea>
 
-      <button onclick="secret()">
-        Dime un secreto 🤫
-      </button>
+  <button onclick="finishAnswer()">
+    Continuar
+  </button>
 
-      <button onclick="angry()">
-        ¿Estás enojada?
-      </button>
-
-    </div>
-
-  </section>
+</section>
 
 
-  <!-- CONTENIDO DINAMICO -->
-  <section id="content" class="hidden fade"></section>
+<!-- ENOJADA -->
+
+<section id="angry" class="hidden fade">
+
+  <h2>Pregunta seria.</h2>
+
+  <p>¿Estás enojada?</p>
+
+  <div class="options">
+
+    <button onclick="finishAngry('Sí')">
+      Sí
+    </button>
+
+    <button onclick="finishAngry('No')">
+      No
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section id="final" class="hidden fade">
+
+  <h2 id="finalTitle"></h2>
+
+  <p id="finalText"></p>
+
+  <div class="note" id="instagramNote"></div>
+
+  <button
+    class="instagram"
+    onclick="openInstagram()"
+  >
+    Cuéntamelo por Instagram
+  </button>
+
+  <br>
+
+  <button onclick="showMenu()">
+    Volver
+  </button>
+
+</section>
+
 
 </main>
 
 
 <script>
 
-function change(html){
+/*
+  CAMBIA ESTO POR TU USUARIO.
 
-  document.getElementById("start").classList.add("hidden");
-  document.getElementById("menu").classList.add("hidden");
+  Ejemplo:
 
-  const content=document.getElementById("content");
+  const MY_INSTAGRAM="jonathan";
+*/
 
-  content.innerHTML=html;
+const MY_INSTAGRAM="TU_USUARIO";
 
-  content.classList.remove("hidden");
+
+let currentQuestion="";
+let currentAnswer="";
+let currentType="";
+
+
+/* MOSTRAR SECCIONES */
+
+function hideAll(){
+
+  document
+    .querySelectorAll("main section")
+    .forEach(section=>{
+      section.classList.add("hidden");
+    });
 
 }
 
 
-/* Primera respuesta */
+function show(id){
 
-function begin(){
-
-  const answer=document
-    .getElementById("firstAnswer")
-    .value
-    .trim();
-
-  if(!answer) return;
+  hideAll();
 
   document
-    .getElementById("start")
-    .classList.add("hidden");
-
-  document
-    .getElementById("menu")
+    .getElementById(id)
     .classList.remove("hidden");
 
 }
 
 
-/* Conocerla mejor */
+/* INICIO */
 
-function more(){
+function startConversation(){
 
-  change(`
-    <h2>Una pregunta.</h2>
-
-    <p>
-      Si alguien quisiera conocerte de verdad...
-    </p>
-
-    <p>
-      ¿Qué debería saber sobre ti?
-    </p>
-
-    <input
-      id="moreAnswer"
-      placeholder="Puedes responder lo que quieras..."
-    >
-
-    <button onclick="finishMore()">
-      Enviar
-    </button>
-  `);
-
-}
-
-
-function finishMore(){
-
-  const answer=document
-    .getElementById("moreAnswer")
+  const value=document
+    .getElementById("activity")
     .value
     .trim();
 
-  if(!answer) return;
-
-  change(`
-    <h2>Gracias por contármelo.</h2>
-
-    <p>
-      Creo que todavía quedan muchas cosas
-      interesantes por descubrir sobre ti.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
+  if(!value)return;
 
 
-/* Secreto */
-
-function secret(){
-
-  change(`
-    <h2>Dime un secreto 🤫</h2>
-
-    <p>
-      Algo que probablemente no le contarías
-      a cualquiera.
-    </p>
-
-    <input
-      id="secretAnswer"
-      placeholder="Tu secreto queda aquí..."
-    >
-
-    <button onclick="finishSecret()">
-      Guardar
-    </button>
-  `);
-
-}
+  const lower=value.toLowerCase();
 
 
-function finishSecret(){
+  if(
+    lower.includes("nada") ||
+    lower.includes("aburrida") ||
+    lower.includes("aburrido")
+  ){
 
-  const answer=document
-    .getElementById("secretAnswer")
-    .value
-    .trim();
+    document
+      .getElementById("responseText")
+      .textContent="Yo también estoy aburrido.";
 
-  if(!answer) return;
+    document
+      .getElementById("responseSub")
+      .textContent="Podríamos arreglar eso.";
 
-  change(`
-    <h2>Ahora sé algo más de ti.</h2>
-
-    <p>
-      Gracias por confiarme eso.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-/* Enojada */
-
-function angry(){
-
-  change(`
-    <h2>Pregunta seria.</h2>
-
-    <p>
-      ¿Estás enojada?
-    </p>
-
-    <div class="options">
-
-      <button onclick="angryYes()">
-        Sí
-      </button>
-
-      <button onclick="angryNo()">
-        No
-      </button>
-
-    </div>
-  `);
-
-}
-
-
-function angryYes(){
-
-  change(`
-    <h2>Está bien.</h2>
-
-    <p>
-      Entonces intentaré no molestarte.
-    </p>
-
-    <p>
-      Aunque probablemente un poquito.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-function angryNo(){
-
-  change(`
-    <h2>Entonces estamos bien.</h2>
-
-    <p>
-      Eso significa que puedo seguir
-      preguntándote cosas.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-/* Volver al menú */
-
-function goBack(){
-
-  document
-    .getElementById("content")
-    .classList.add("hidden");
-
-  document
-    .getElementById("menu")
-    .classList.remove("hidden");
-
-}
-
-</script>
-
-</body>
-</html>  cursor:pointer;
-  font-family:inherit;
-  font-size:15px;
-  color:#fff;
-  background:#c98c9b;
-  box-shadow:0 8px 20px rgba(201,140,155,.25);
-  transition:.25s;
-}
-
-button:hover{
-  transform:translateY(-2px);
-}
-
-.options{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:22px;
-}
-
-.options button{
-  width:100%;
-  margin:0;
-  background:#d9a7b3;
-}
-
-.options button:nth-child(2){
-  background:#bfa08d;
-}
-
-.options button:nth-child(3){
-  background:#b18b9b;
-}
-
-.hidden{
-  display:none;
-}
-
-.fade{
-  animation:fade .5s ease;
-}
-
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(10px);
   }
 
-  to{
-    opacity:1;
-    transform:translateY(0);
+  else{
+
+    document
+      .getElementById("responseText")
+      .textContent="Me gusta saberlo.";
+
+    document
+      .getElementById("responseSub")
+      .textContent=
+      "Ahora tengo curiosidad por conocerte un poco más.";
+
   }
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- Flores decorativas -->
-<div class="flower f1">🌷</div>
-<div class="flower f2">🌸</div>
-<div class="flower f3">🌺</div>
-<div class="flower f4">🌷</div>
 
 
-<main class="card">
-
-  <!-- INICIO -->
-  <section id="start" class="fade">
-
-    <h1>Hola.</h1>
-
-    <p>
-      Tengo curiosidad por algo.
-    </p>
-
-    <p>
-      ¿Qué ha sido algo que te ha hecho feliz últimamente?
-    </p>
-
-    <input
-      id="firstAnswer"
-      placeholder="Escribe lo que quieras..."
-    >
-
-    <button onclick="begin()">
-      Enviar
-    </button>
-
-  </section>
-
-
-  <!-- MENU -->
-  <section id="menu" class="hidden fade">
-
-    <h2>Me gusta conocer ese tipo de cosas de ti.</h2>
-
-    <p>
-      ¿Qué quieres hacer ahora?
-    </p>
-
-    <div class="options">
-
-      <button onclick="more()">
-        Cuéntame algo más
-      </button>
-
-      <button onclick="secret()">
-        Dime un secreto 🤫
-      </button>
-
-      <button onclick="angry()">
-        ¿Estás enojada?
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTENIDO DINAMICO -->
-  <section id="content" class="hidden fade"></section>
-
-</main>
-
-
-<script>
-
-function change(html){
-
-  document.getElementById("start").classList.add("hidden");
-  document.getElementById("menu").classList.add("hidden");
-
-  const content=document.getElementById("content");
-
-  content.innerHTML=html;
-
-  content.classList.remove("hidden");
+  show("response");
 
 }
 
 
-/* Primera respuesta */
+/* MENU */
 
-function begin(){
+function showMenu(){
 
-  const answer=document
-    .getElementById("firstAnswer")
+  show("menu");
+
+}
+
+
+/* CONOCERLA */
+
+function askAboutYou(){
+
+  currentType="about";
+
+  currentQuestion=
+  "Si alguien quisiera conocerte de verdad, ¿qué debería saber sobre ti?";
+
+
+  document
+    .getElementById("questionTitle")
+    .textContent="Una pregunta.";
+
+  document
+    .getElementById("questionText")
+    .textContent=currentQuestion;
+
+  document
+    .getElementById("answer")
+    .value="";
+
+  show("question");
+
+}
+
+
+/* SECRETO */
+
+function askSecret(){
+
+  currentType="secret";
+
+  currentQuestion="Dime un secreto.";
+
+
+  document
+    .getElementById("questionTitle")
+    .textContent="Dime un secreto 🤫";
+
+  document
+    .getElementById("questionText")
+    .textContent=
+    "Algo que probablemente no le contarías a cualquiera.";
+
+  document
+    .getElementById("answer")
+    .value="";
+
+  show("question");
+
+}
+
+
+/* ENOJADA */
+
+function askAngry(){
+
+  currentType="angry";
+
+  show("angry");
+
+}
+
+
+function finishAngry(value){
+
+  currentQuestion="¿Estás enojada?";
+
+  currentAnswer=value;
+
+
+  if(value==="Sí"){
+
+    showFinal(
+      "Está bien.",
+      "Entonces intentaré no molestarte demasiado."
+    );
+
+  }
+
+  else{
+
+    showFinal(
+      "Entonces estamos bien.",
+      "Eso significa que todavía puedo seguir preguntándote cosas."
+    );
+
+  }
+
+}
+
+
+/* RESPUESTA */
+
+function finishAnswer(){
+
+  const value=document
+    .getElementById("answer")
     .value
     .trim();
 
-  if(!answer) return;
+  if(!value)return;
+
+
+  currentAnswer=value;
+
+
+  if(currentType==="about"){
+
+    showFinal(
+      "Gracias por contármelo.",
+      "Creo que todavía quedan muchas cosas por descubrir sobre ti."
+    );
+
+  }
+
+
+  if(currentType==="secret"){
+
+    showFinal(
+      "Ahora sé algo más de ti.",
+      "Gracias por confiarme eso."
+    );
+
+  }
+
+}
+
+
+/* FINAL */
+
+function showFinal(title,text){
 
   document
-    .getElementById("start")
-    .classList.add("hidden");
+    .getElementById("finalTitle")
+    .textContent=title;
 
   document
-    .getElementById("menu")
-    .classList.remove("hidden");
+    .getElementById("finalText")
+    .textContent=text;
+
+
+  const note=
+  document.getElementById("instagramNote");
+
+
+  if(currentType==="secret"){
+
+    note.textContent=
+    "Creo que esta página todavía no es muy buena guardando secretos. Mejor cuéntamelo por Instagram.";
+
+  }
+
+  else{
+
+    note.textContent=
+    "Creo que esta pequeña página todavía tiene algunas cosas que aprender. Si quieres que pueda leer tu respuesta, puedes contármela por Instagram.";
+
+  }
+
+
+  show("final");
 
 }
 
 
-/* Conocerla mejor */
+/* INSTAGRAM */
 
-function more(){
+function openInstagram(){
 
-  change(`
-    <h2>Una pregunta.</h2>
-
-    <p>
-      Si alguien quisiera conocerte de verdad...
-    </p>
-
-    <p>
-      ¿Qué debería saber sobre ti?
-    </p>
-
-    <input
-      id="moreAnswer"
-      placeholder="Puedes responder lo que quieras..."
-    >
-
-    <button onclick="finishMore()">
-      Enviar
-    </button>
-  `);
-
-}
-
-
-function finishMore(){
-
-  const answer=document
-    .getElementById("moreAnswer")
-    .value
-    .trim();
-
-  if(!answer) return;
-
-  change(`
-    <h2>Gracias por contármelo.</h2>
-
-    <p>
-      Creo que todavía quedan muchas cosas
-      interesantes por descubrir sobre ti.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-/* Secreto */
-
-function secret(){
-
-  change(`
-    <h2>Dime un secreto 🤫</h2>
-
-    <p>
-      Algo que probablemente no le contarías
-      a cualquiera.
-    </p>
-
-    <input
-      id="secretAnswer"
-      placeholder="Tu secreto queda aquí..."
-    >
-
-    <button onclick="finishSecret()">
-      Guardar
-    </button>
-  `);
-
-}
-
-
-function finishSecret(){
-
-  const answer=document
-    .getElementById("secretAnswer")
-    .value
-    .trim();
-
-  if(!answer) return;
-
-  change(`
-    <h2>Ahora sé algo más de ti.</h2>
-
-    <p>
-      Gracias por confiarme eso.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-/* Enojada */
-
-function angry(){
-
-  change(`
-    <h2>Pregunta seria.</h2>
-
-    <p>
-      ¿Estás enojada?
-    </p>
-
-    <div class="options">
-
-      <button onclick="angryYes()">
-        Sí
-      </button>
-
-      <button onclick="angryNo()">
-        No
-      </button>
-
-    </div>
-  `);
-
-}
-
-
-function angryYes(){
-
-  change(`
-    <h2>Está bien.</h2>
-
-    <p>
-      Entonces intentaré no molestarte.
-    </p>
-
-    <p>
-      Aunque probablemente un poquito.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-function angryNo(){
-
-  change(`
-    <h2>Entonces estamos bien.</h2>
-
-    <p>
-      Eso significa que puedo seguir
-      preguntándote cosas.
-    </p>
-
-    <button onclick="goBack()">
-      Volver
-    </button>
-  `);
-
-}
-
-
-/* Volver al menú */
-
-function goBack(){
-
-  document
-    .getElementById("content")
-    .classList.add("hidden");
-
-  document
-    .getElementById("menu")
-    .classList.remove("hidden");
+  window.open(
+    "https://instagram.com/"+MY_INSTAGRAM,
+    "_blank"
+  );
 
 }
 
