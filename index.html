@@ -456,4 +456,354 @@ function goBack(){
 </script>
 
 </body>
+</html>  cursor:pointer;
+  font-family:inherit;
+  font-size:15px;
+  color:#fff;
+  background:#c98c9b;
+  box-shadow:0 8px 20px rgba(201,140,155,.25);
+  transition:.25s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:22px;
+}
+
+.options button{
+  width:100%;
+  margin:0;
+  background:#d9a7b3;
+}
+
+.options button:nth-child(2){
+  background:#bfa08d;
+}
+
+.options button:nth-child(3){
+  background:#b18b9b;
+}
+
+.hidden{
+  display:none;
+}
+
+.fade{
+  animation:fade .5s ease;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Flores decorativas -->
+<div class="flower f1">🌷</div>
+<div class="flower f2">🌸</div>
+<div class="flower f3">🌺</div>
+<div class="flower f4">🌷</div>
+
+
+<main class="card">
+
+  <!-- INICIO -->
+  <section id="start" class="fade">
+
+    <h1>Hola.</h1>
+
+    <p>
+      Tengo curiosidad por algo.
+    </p>
+
+    <p>
+      ¿Qué ha sido algo que te ha hecho feliz últimamente?
+    </p>
+
+    <input
+      id="firstAnswer"
+      placeholder="Escribe lo que quieras..."
+    >
+
+    <button onclick="begin()">
+      Enviar
+    </button>
+
+  </section>
+
+
+  <!-- MENU -->
+  <section id="menu" class="hidden fade">
+
+    <h2>Me gusta conocer ese tipo de cosas de ti.</h2>
+
+    <p>
+      ¿Qué quieres hacer ahora?
+    </p>
+
+    <div class="options">
+
+      <button onclick="more()">
+        Cuéntame algo más
+      </button>
+
+      <button onclick="secret()">
+        Dime un secreto 🤫
+      </button>
+
+      <button onclick="angry()">
+        ¿Estás enojada?
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTENIDO DINAMICO -->
+  <section id="content" class="hidden fade"></section>
+
+</main>
+
+
+<script>
+
+function change(html){
+
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("menu").classList.add("hidden");
+
+  const content=document.getElementById("content");
+
+  content.innerHTML=html;
+
+  content.classList.remove("hidden");
+
+}
+
+
+/* Primera respuesta */
+
+function begin(){
+
+  const answer=document
+    .getElementById("firstAnswer")
+    .value
+    .trim();
+
+  if(!answer) return;
+
+  document
+    .getElementById("start")
+    .classList.add("hidden");
+
+  document
+    .getElementById("menu")
+    .classList.remove("hidden");
+
+}
+
+
+/* Conocerla mejor */
+
+function more(){
+
+  change(`
+    <h2>Una pregunta.</h2>
+
+    <p>
+      Si alguien quisiera conocerte de verdad...
+    </p>
+
+    <p>
+      ¿Qué debería saber sobre ti?
+    </p>
+
+    <input
+      id="moreAnswer"
+      placeholder="Puedes responder lo que quieras..."
+    >
+
+    <button onclick="finishMore()">
+      Enviar
+    </button>
+  `);
+
+}
+
+
+function finishMore(){
+
+  const answer=document
+    .getElementById("moreAnswer")
+    .value
+    .trim();
+
+  if(!answer) return;
+
+  change(`
+    <h2>Gracias por contármelo.</h2>
+
+    <p>
+      Creo que todavía quedan muchas cosas
+      interesantes por descubrir sobre ti.
+    </p>
+
+    <button onclick="goBack()">
+      Volver
+    </button>
+  `);
+
+}
+
+
+/* Secreto */
+
+function secret(){
+
+  change(`
+    <h2>Dime un secreto 🤫</h2>
+
+    <p>
+      Algo que probablemente no le contarías
+      a cualquiera.
+    </p>
+
+    <input
+      id="secretAnswer"
+      placeholder="Tu secreto queda aquí..."
+    >
+
+    <button onclick="finishSecret()">
+      Guardar
+    </button>
+  `);
+
+}
+
+
+function finishSecret(){
+
+  const answer=document
+    .getElementById("secretAnswer")
+    .value
+    .trim();
+
+  if(!answer) return;
+
+  change(`
+    <h2>Ahora sé algo más de ti.</h2>
+
+    <p>
+      Gracias por confiarme eso.
+    </p>
+
+    <button onclick="goBack()">
+      Volver
+    </button>
+  `);
+
+}
+
+
+/* Enojada */
+
+function angry(){
+
+  change(`
+    <h2>Pregunta seria.</h2>
+
+    <p>
+      ¿Estás enojada?
+    </p>
+
+    <div class="options">
+
+      <button onclick="angryYes()">
+        Sí
+      </button>
+
+      <button onclick="angryNo()">
+        No
+      </button>
+
+    </div>
+  `);
+
+}
+
+
+function angryYes(){
+
+  change(`
+    <h2>Está bien.</h2>
+
+    <p>
+      Entonces intentaré no molestarte.
+    </p>
+
+    <p>
+      Aunque probablemente un poquito.
+    </p>
+
+    <button onclick="goBack()">
+      Volver
+    </button>
+  `);
+
+}
+
+
+function angryNo(){
+
+  change(`
+    <h2>Entonces estamos bien.</h2>
+
+    <p>
+      Eso significa que puedo seguir
+      preguntándote cosas.
+    </p>
+
+    <button onclick="goBack()">
+      Volver
+    </button>
+  `);
+
+}
+
+
+/* Volver al menú */
+
+function goBack(){
+
+  document
+    .getElementById("content")
+    .classList.add("hidden");
+
+  document
+    .getElementById("menu")
+    .classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
 </html>
